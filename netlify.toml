@@ -1,0 +1,6 @@
+# Static site: index.html sits at the repo root, so there is nothing to build.
+# Netlify publishes the root directory as-is.
+
+[build]
+  publish = "."
+  command = ""
