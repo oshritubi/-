@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>פתיחת שנה תשפ״ז</title>
+<style>
+  :root{
+    --blue-deep:#0d2b4e;
+    --blue:#1c4c8c;
+    --blue-light:#eaf1fb;
+    --gold:#d4af37;
+    --gold-light:#f6e6b4;
+    --paper:#fbfaf6;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html,body{
+    direction:rtl;
+    background:var(--paper);
+    font-family:"Segoe UI","Heebo","Arial",sans-serif;
+    color:var(--blue-deep);
+    min-height:100vh;
+  }
+  body{
+    background:
+      radial-gradient(circle at 20% -10%, var(--gold-light) 0%, transparent 45%),
+      radial-gradient(circle at 100% 0%, var(--blue-light) 0%, transparent 50%),
+      var(--paper);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    padding:40px 16px 60px;
+  }
+  .logo{
+    width:110px;
+    height:auto;
+    border-radius:50%;
+    box-shadow:0 4px 18px rgba(13,43,78,0.18);
+    margin-bottom:18px;
+    border:3px solid var(--gold);
+  }
+  header{
+    text-align:center;
+    margin-bottom:34px;
+  }
+  h1{
+    font-size:2.6rem;
+    color:var(--blue-deep);
+    letter-spacing:1px;
+    margin-bottom:8px;
+  }
+  h1 span{
+    color:var(--gold);
+  }
+  .subtitle{
+    font-size:1.1rem;
+    color:var(--blue);
+    opacity:0.85;
+  }
+  .divider{
+    width:90px;
+    height:3px;
+    background:linear-gradient(90deg, var(--gold), var(--blue));
+    margin:16px auto 0;
+    border-radius:3px;
+  }
+
+  /* countdown */
+  .countdown-wrap{
+    background:linear-gradient(135deg, var(--blue-deep), var(--blue));
+    border-radius:20px;
+    padding:26px 30px;
+    box-shadow:0 10px 30px rgba(13,43,78,0.25);
+    margin-bottom:46px;
+    text-align:center;
+    max-width:640px;
+    width:100%;
+    border:1px solid var(--gold);
+  }
+  .countdown-label{
+    color:var(--gold-light);
+    font-size:1rem;
+    margin-bottom:16px;
+    letter-spacing:0.5px;
+  }
+  .countdown{
+    display:flex;
+    justify-content:center;
+    gap:14px;
+    flex-wrap:wrap;
+  }
+  .time-box{
+    background:rgba(255,255,255,0.08);
+    border:1px solid rgba(212,175,55,0.5);
+    border-radius:14px;
+    padding:14px 18px;
+    min-width:78px;
+  }
+  .time-num{
+    font-size:2rem;
+    font-weight:700;
+    color:var(--gold);
+    display:block;
+    line-height:1;
+  }
+  .time-unit{
+    font-size:0.85rem;
+    color:#fff;
+    opacity:0.85;
+    margin-top:6px;
+    display:block;
+  }
+
+  /* cards */
+  .cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(190px, 1fr));
+    gap:24px;
+    max-width:900px;
+    width:100%;
+  }
+  .card{
+    background:#fff;
+    border-radius:18px;
+    padding:28px 20px;
+    text-align:center;
+    box-shadow:0 6px 20px rgba(13,43,78,0.10);
+    border-top:5px solid var(--gold);
+    transition:transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 14px 28px rgba(13,43,78,0.18);
+  }
+  .card .avatar{
+    width:64px;
+    height:64px;
+    border-radius:50%;
+    background:linear-gradient(135deg, var(--blue), var(--blue-deep));
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:var(--gold-light);
+    font-size:1.6rem;
+    font-weight:700;
+    margin:0 auto 14px;
+  }
+  .card h3{
+    color:var(--blue-deep);
+    font-size:1.3rem;
+    margin-bottom:6px;
+  }
+  .card p{
+    color:var(--blue);
+    font-size:0.95rem;
+    opacity:0.8;
+  }
+
+  footer{
+    margin-top:50px;
+    text-align:center;
+    color:var(--blue);
+    opacity:0.6;
+    font-size:0.85rem;
+  }
+
+  @media (max-width:480px){
+    h1{font-size:2rem;}
+    .time-box{min-width:64px;padding:10px 12px;}
+    .time-num{font-size:1.5rem;}
+  }
+</style>
+</head>
+<body>
+
+<img class="logo" src="logo.jpeg" alt="אפיקי אורות">
+
+<header>
+  <h1>פתיחת שנה <span>תשפ״ז</span></h1>
+  <p class="subtitle">נספור יחד את הימים עד תחילת שנת הלימודים</p>
+  <div class="divider"></div>
+</header>
+
+<div class="countdown-wrap">
+  <div class="countdown-label">סופרים לקראת 1.9.2026</div>
+  <div class="countdown" id="countdown">
+    <div class="time-box"><span class="time-num" id="days">00</span><span class="time-unit">ימים</span></div>
+    <div class="time-box"><span class="time-num" id="hours">00</span><span class="time-unit">שעות</span></div>
+    <div class="time-box"><span class="time-num" id="minutes">00</span><span class="time-unit">דקות</span></div>
+    <div class="time-box"><span class="time-num" id="seconds">00</span><span class="time-unit">שניות</span></div>
+  </div>
+</div>
+
+<section class="cards">
+  <div class="card">
+    <div class="avatar">ל</div>
+    <h3>ליאור</h3>
+    <p>מתרגשים לקראתך!</p>
+  </div>
+  <div class="card">
+    <div class="avatar">נ</div>
+    <h3>נריה</h3>
+    <p>מתרגשים לקראתך!</p>
+  </div>
+  <div class="card">
+    <div class="avatar">ר</div>
+    <h3>רון</h3>
+    <p>מתרגשים לקראתך!</p>
+  </div>
+  <div class="card">
+    <div class="avatar">ה</div>
+    <h3>הדר</h3>
+    <p>מתרגשים לקראתך!</p>
+  </div>
+</section>
+
+<footer>אפיקי אורות · שנת תשפ״ז</footer>
+
+<script>
+  const target = new Date("2026-09-01T00:00:00");
+
+  function updateCountdown(){
+    const now = new Date();
+    let diff = target - now;
+
+    if(diff < 0) diff = 0;
+
+    const days = Math.floor(diff / (1000*60*60*24));
+    const hours = Math.floor((diff / (1000*60*60)) % 24);
+    const minutes = Math.floor((diff / (1000*60)) % 60);
+    const seconds = Math.floor((diff / 1000) % 60);
+
+    document.getElementById("days").textContent = String(days).padStart(2,"0");
+    document.getElementById("hours").textContent = String(hours).padStart(2,"0");
+    document.getElementById("minutes").textContent = String(minutes).padStart(2,"0");
+    document.getElementById("seconds").textContent = String(seconds).padStart(2,"0");
+  }
+
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+</script>
+
+</body>
+</html>
